@@ -1,0 +1,17 @@
+<h2>Favourites</h2>
+<hr />
+<% @favourites.each do |favourite| %>
+<div class="row">
+  <div class="col-sm-3">
+      <% if favourite.contact.user_id = @user.id %>
+         <h4><%= favourite.contact.name %></h4>
+         <p><%= favourite.contact.address %></p>
+         <p><%= favourite.contact.postalcode %></p>
+         <p><%= favourite.contact.city %></p>
+         <p><%= favourite.contact.phone %></p>
+         <p><%= favourite.contact.email %></p>
+      <% end %>
+      <hr />
+  </div>
+</div>
+<% end %>

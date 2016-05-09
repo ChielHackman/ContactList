@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-3">
+    <h1><%= @contact.name %></h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <p><%= @contact.address %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <p><%= @contact.postalcode %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <p><%= @contact.city %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <p><%= @contact.phone %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <p><%= @contact.email %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <%= link_to "", edit_contact_path(@contact.id), class: 'fa fa-pencil-square-o' %>
+    <%= link_to "", contact_path(@contact), method: :delete, data: { confirm: "Are you sure?" }, class: 'fa fa-trash-o' %>
+  </div>
+</div>
