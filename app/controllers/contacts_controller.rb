@@ -32,7 +32,7 @@ class ContactsController < ApplicationController
   end
 
   def update
-    @contact = Contact.find( params[:id] )
+    @contact = Contact.find_by_name( params[:id] )
     @contact.update_attributes( contact_params )
     if @contact.save
       flash[:success] = "Contact updated successfully."
@@ -64,7 +64,7 @@ class ContactsController < ApplicationController
 
     @user = User.find( params[:user_id] )
 
-    @contact = Contact.find( params [:id] )
+    @contact = Contact.find_by_name( params [:id] )
   end
 
   private
