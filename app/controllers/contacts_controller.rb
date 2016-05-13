@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @contact = Contact.find( params[:id] )
+    @contact = Contact.find_by_name( params[:id] )
   end
 
   def new

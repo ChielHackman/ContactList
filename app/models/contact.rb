@@ -11,4 +11,8 @@ class Contact < ActiveRecord::Base
   validates_format_of :phone, allow_blank: false, :with => /\A[+ 0-9 -]+$\z/
   validates_format_of :email, allow_blank: false, :with => /@/, message: 'must contain @.'
 
+  def to_param
+    name
+  end
+
 end
