@@ -1,1 +1,32 @@
-<%= render current_user.contacts %>
+<div class="row">
+  <div class="col-sm-6">
+    <h2>Contacts <%= link_to "", new_contact_path, class: "fa fa-file-o" %></h2>
+  </div>
+  <div class="col-sm-6">
+    <h2 style="text-align:center;">Favourites</h2>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-sm-6">
+    <%= render current_user.contacts.order(:name) %>
+  </div>
+  <div class="col-sm-6">
+    <% @favourites.each do |favourite| %>
+    <div class="smalldiv">
+      <% if favourite.contact.user_id = current_user %>
+         <h3><%= favourite.contact.name %></h3>
+         <hr />
+         <i class="fa fa-map-marker" aria-hidden="true">
+         <%= favourite.contact.address %><br />
+         <%= favourite.contact.postalcode %></br />
+         <%= favourite.contact.city %></i><br />
+         <i class="fa fa-phone" aria-hidden="true">
+         <%= favourite.contact.phone %></i><br />
+         <i class="fa fa-envelope-o" aria-hidden="true">
+         <%= favourite.contact.email %></i>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

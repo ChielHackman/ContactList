@@ -19,12 +19,28 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
- main {
-   padding-top: 80px;
+ ::-webkit-scrollbar {
+     width: 0px;  /* remove scrollbar space */
+     background: transparent;  /* optional: just make scrollbar invisible */
  }
+ /* optional: show position indicator in red */
+ ::-webkit-scrollbar-thumb {
+     background: #FF0000;
+ }
+
+ main {
+   height: 80vh;
+   border: 1px solid black;
+   border-radius: 20px;
+   overflow: scroll;
+   overflow-x: hidden;
+   margin-top: 80px;
+   padding: 15px;
+}
 
  .fa {
    font-size: 20px;
+   text-decoration: none !important;
  }
 
  div.field_with_errors {
@@ -37,6 +53,14 @@
     }
 }
 
+.smalldiv {
+  border: 2px solid #006dcc;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 25px;
+  text-align: center;
+  display: inline-block;
+}
 
 #footer {
   height: 40px;
@@ -44,6 +68,7 @@
 
 #footer .container {
   position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;

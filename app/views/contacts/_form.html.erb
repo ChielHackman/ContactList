@@ -1,3 +1,4 @@
+<div class="smalldiv">
 <%= form_for @contact do |f| %>
 <ul>
    <% @contact.errors.full_messages.each do |msg| %>
@@ -5,41 +6,18 @@
    <% end %>
 </ul>
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-12">
       <%= f.text_field :name, class: "form-control", placeholder: "Name*"  %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
       <%= f.text_field :address, class: "form-control", placeholder: "Address" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
       <%= f.text_field :postalcode, class: "form-control", placeholder: "Postal code" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
       <%= f.text_field :city, class: "form-control", placeholder: "City" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
       <%= f.text_field :phone, class: "form-control", placeholder: "06-12345678*" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
       <%= f.text_field :email, class: "form-control", placeholder: "someone@example.com*" %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <i style="font-size: 10px;">* fields required</i>
-    </div>
-  </div>
-      <br />
-      <%= f.submit (@contact.new_record? ? "Create" : "Update"), class: "btn btn-primary" %>
-      <%= link_to "Cancel", @contact, class: "btn btn-danger" %>
+  <i style="font-size: 10px;">* fields required</i>
+  <br />
+    <%= f.submit (@contact.new_record? ? "Create" : "Update"), class: "btn btn-primary" %>
+    <%= link_to "Cancel", root_path, class: "btn btn-danger" %>
 <% end %>
+</div>

@@ -1,7 +1,9 @@
 class ContactsController < ApplicationController
 
   def index
-      @contacts = Contact.order( name: :asc )
+    @contacts = Contact.all
+    @user = current_user
+    @favourites = @user.favourites.all
   end
 
   def show
@@ -18,7 +20,7 @@ class ContactsController < ApplicationController
 
    if @contact.save
       flash[:success] = "New contact created successfully."
-      redirect_to contacts_path
+      redirect_to root_path
    else
       flash[:danger] = "Something went wrong:"
       render 'new'
@@ -31,9 +33,10 @@ class ContactsController < ApplicationController
 
   def update
     @contact = Contact.find( params[:id] )
-    if @contact.update_attributes( contact_params )
+    @contact.update_attributes( contact_params )
+    if @contact.save
       flash[:success] = "Contact updated successfully."
-      redirect_to contacts_path
+      redirect_to contact_path
     else
       render 'edit'
     end
@@ -51,15 +54,23 @@ class ContactsController < ApplicationController
   def user
    @user = User.find( params[:user_id] )
 
-   @contacts = Contact.where( user: @user ).order( name: :asc )
+   @contacts = Contact.where( user: @user )
 
-   @favourites = @user.favourites.joins( :contact ).order( "contacts.created_at DESC" )
+   @favourites = @user.favourites.joins( :contact )
+  end
+
+  def favourites
+    @favourites = Favourite.all
+
+    @user = User.find( params[:user_id] )
+
+    @contact = Contact.find( params [:id] )
   end
 
   private
 
    def contact_params
-      params.require( :contact ).permit( :name, :phone, :email )
+      params.require( :contact ).permit( :name, :address, :postalcode, :city, :phone, :email )
    end
 
 end
