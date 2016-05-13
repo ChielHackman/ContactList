@@ -6,7 +6,7 @@
     <h2 style="text-align:center;">Favourites</h2>
   </div>
 </div>
-<hr />
+<hr class="style1" />
 <div class="row">
   <div class="col-sm-6">
     <%= render current_user.contacts.order(:name) %>
@@ -15,8 +15,8 @@
     <% @favourites.each do |favourite| %>
     <div class="smalldiv">
       <% if favourite.contact.user_id = current_user %>
-         <h3><%= favourite.contact.name %></h3>
-         <hr />
+         <h2><%= favourite.contact.name %></h2>
+         <hr class="style2" />
          <i class="fa fa-map-marker" aria-hidden="true">
          <%= favourite.contact.address %><br />
          <%= favourite.contact.postalcode %></br />
