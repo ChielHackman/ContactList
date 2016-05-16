@@ -1,0 +1,16 @@
+<% @friends.each do |friend| %>
+<div class="smalldiv">
+  <% if friend.contact.user_id = current_user %>
+     <h2><%= friend.contact.name %></h2>
+     <hr class="style2" />
+     <i class="fa fa-map-marker" aria-hidden="true">
+     <%= friend.contact.address %><br />
+     <%= friend.contact.postalcode %></br />
+     <%= friend.contact.city %></i><br />
+     <i class="fa fa-phone" aria-hidden="true">
+     <%= friend.contact.phone %></i><br />
+     <i class="fa fa-envelope-o" aria-hidden="true">
+     <%= friend.contact.email %></i>
+  <% end %>
+</div>
+<% end %>

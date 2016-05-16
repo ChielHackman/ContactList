@@ -1,11 +1,22 @@
 <div class="row">
-  <div class="col-sm-6">
-    <p>
-      <%= link_to contact.name, contact %>
+  <div class="col-sm-8">
+      <h4><%= link_to contact.name, contact %></h4>
       <% favourited = Favourite.find_by( contact: contact, user: current_user ) != nil %>
       <% btn_color = favourited ? "fa fa-star" : "fa fa-star-o" %>
+      <%= link_to "Favourite", contact_favourites_path( contact ), title: "Favourite", method: :post, class: "btn-#{btn_color} btn-xs fa fa-star" %>
 
-      <%= link_to "", contact_favourites_path( contact ), method: :post, class: "btn-#{btn_color} btn-xs fa fa-star" %>
+      <% familyd = Family.find_by( contact: contact, user: current_user ) != nil %>
+      <% btn_color = familyd ? "fa fa-heart" : "fa fa-heart-o" %>
+      <%= link_to "Family", contact_familys_path( contact ), title: "Family", method: :post, class: "btn-#{btn_color} btn-xs fa fa-heart" %>
+
+      <% friended = Friend.find_by( contact: contact, user: current_user ) != nil %>
+      <% btn_color = friended ? "fa fa-comments" : "fa fa-comments-o" %>
+      <%= link_to "Friend", contact_friends_path( contact ), title: "Friend", method: :post, class: "btn-#{btn_color} btn-xs fa fa-comments" %>
+
+      <% worked = Work.find_by( contact: contact, user: current_user ) != nil %>
+      <% btn_color = worked ? "fa fa-building" : "fa fa-building-o" %>
+      <%= link_to "Work", contact_works_path( contact ), title: "Work", method: :post, class: "btn-#{btn_color} btn-xs fa fa-building-o" %>
+
       <hr class="style2" />
       <br />
   </div>

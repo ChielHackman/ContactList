@@ -1,0 +1,16 @@
+<% @favourites.each do |favourite| %>
+<div class="smalldiv">
+  <% if favourite.contact.user_id = current_user %>
+     <h2><%= favourite.contact.name %></h2>
+     <hr class="style2" />
+     <i class="fa fa-map-marker" aria-hidden="true">
+     <%= favourite.contact.address %><br />
+     <%= favourite.contact.postalcode %></br />
+     <%= favourite.contact.city %></i><br />
+     <i class="fa fa-phone" aria-hidden="true">
+     <%= favourite.contact.phone %></i><br />
+     <i class="fa fa-envelope-o" aria-hidden="true">
+     <%= favourite.contact.email %></i>
+  <% end %>
+</div>
+<% end %>

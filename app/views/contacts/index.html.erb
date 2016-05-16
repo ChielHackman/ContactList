@@ -1,9 +1,15 @@
 <div class="row">
   <div class="col-sm-6">
-    <h2>Contacts <%= link_to "", new_contact_path, class: "fa fa-file-o" %></h2>
+    <h2>Contacts</h2>
   </div>
   <div class="col-sm-6">
-    <h2 style="text-align:center;">Favourites</h2>
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-file-o" aria-hidden="true"></i></a></li>
+      <li role="presentation"><a href="#favourites" aria-controls="profile" role="tab" data-toggle="tab">Favourites</a></li>
+      <li role="presentation"><a href="#family" aria-controls="messages" role="tab" data-toggle="tab">Family</a></li>
+      <li role="presentation"><a href="#friends" aria-controls="settings" role="tab" data-toggle="tab">Friends</a></li>
+      <li role="presentation"><a href="#work" aria-controls="settings" role="tab" data-toggle="tab">Work</a></li>
+    </ul>
   </div>
 </div>
 <hr class="style1" />
@@ -12,21 +18,22 @@
     <%= render current_user.contacts.order(:name) %>
   </div>
   <div class="col-sm-6">
-    <% @favourites.each do |favourite| %>
-    <div class="smalldiv">
-      <% if favourite.contact.user_id = current_user %>
-         <h2><%= favourite.contact.name %></h2>
-         <hr class="style2" />
-         <i class="fa fa-map-marker" aria-hidden="true">
-         <%= favourite.contact.address %><br />
-         <%= favourite.contact.postalcode %></br />
-         <%= favourite.contact.city %></i><br />
-         <i class="fa fa-phone" aria-hidden="true">
-         <%= favourite.contact.phone %></i><br />
-         <i class="fa fa-envelope-o" aria-hidden="true">
-         <%= favourite.contact.email %></i>
-      <% end %>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="home">
+        <%= render 'form' %>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="favourites">
+        <%= render 'favourites' %>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="family">
+        <%= render 'familys' %>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="friends">
+        <%= render 'friends' %>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="work">
+        <%= render 'works' %>
+      </div>
     </div>
-    <% end %>
   </div>
 </div>

@@ -1,0 +1,16 @@
+<% @familys.each do |family| %>
+<div class="smalldiv">
+  <% if family.contact.user_id = current_user %>
+     <h2><%= family.contact.name %></h2>
+     <hr class="style2" />
+     <i class="fa fa-map-marker" aria-hidden="true">
+     <%= family.contact.address %><br />
+     <%= family.contact.postalcode %></br />
+     <%= family.contact.city %></i><br />
+     <i class="fa fa-phone" aria-hidden="true">
+     <%= family.contact.phone %></i><br />
+     <i class="fa fa-envelope-o" aria-hidden="true">
+     <%= family.contact.email %></i>
+  <% end %>
+</div>
+<% end %>

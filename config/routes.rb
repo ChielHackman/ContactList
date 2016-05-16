@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :contacts do
-    resources :favourites
+    resources :favourites, :works, :friends, :familys
   end
   root to: "contacts#index"
 

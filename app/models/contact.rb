@@ -1,6 +1,9 @@
 class Contact < ActiveRecord::Base
   belongs_to :user
   has_many :favourites, :dependent => :destroy
+  has_many :works, :dependent => :destroy
+  has_many :friends, :dependent => :destroy
+  has_many :familys, :dependent => :destroy
 
   validates :name, presence: true
   validates :name, uniqueness: false

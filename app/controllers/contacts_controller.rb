@@ -4,6 +4,10 @@ class ContactsController < ApplicationController
     @contacts = Contact.all
     @user = current_user
     @favourites = @user.favourites.all
+    @friends = @user.friends.all
+    @familys = @user.familys.all
+    @works = @user.works.all
+    @contact = Contact.new
   end
 
   def show
@@ -53,17 +57,31 @@ class ContactsController < ApplicationController
 
   def user
    @user = User.find( params[:user_id] )
-
    @contacts = Contact.where( user: @user )
-
    @favourites = @user.favourites.joins( :contact )
   end
 
   def favourites
     @favourites = Favourite.all
-
     @user = User.find( params[:user_id] )
+    @contact = Contact.find_by_name( params [:id] )
+  end
 
+  def works
+    @works = Work.all
+    @user = User.find( params[:user_id] )
+    @contact = Contact.find_by_name( params [:id] )
+  end
+
+  def familys
+    @familys = Family.all
+    @user = User.find( params [:user_id] )
+    @contact = Contact.find_by_name( params [:id] )
+  end
+
+  def friends
+    @friends = Friend.all
+    @user = User.find( params [:user_id] )
     @contact = Contact.find_by_name( params [:id] )
   end
 

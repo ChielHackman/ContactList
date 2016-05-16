@@ -8,7 +8,7 @@ class FavouritesController < ApplicationController
          favourite.save
     end
 
-   redirect_to root_path
+    redirect_to root_path
  end
 
 end

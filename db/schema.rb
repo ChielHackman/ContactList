@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507204402) do
+ActiveRecord::Schema.define(version: 20160516070934) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20160507204402) do
 
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
 
+  create_table "families", force: :cascade do |t|
+    t.integer  "contact_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "families", ["contact_id"], name: "index_families_on_contact_id"
+  add_index "families", ["user_id"], name: "index_families_on_user_id"
+
   create_table "favourites", force: :cascade do |t|
     t.integer  "contact_id"
     t.integer  "user_id"
@@ -36,6 +46,16 @@ ActiveRecord::Schema.define(version: 20160507204402) do
 
   add_index "favourites", ["contact_id"], name: "index_favourites_on_contact_id"
   add_index "favourites", ["user_id"], name: "index_favourites_on_user_id"
+
+  create_table "friends", force: :cascade do |t|
+    t.integer  "contact_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "friends", ["contact_id"], name: "index_friends_on_contact_id"
+  add_index "friends", ["user_id"], name: "index_friends_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -54,5 +74,15 @@ ActiveRecord::Schema.define(version: 20160507204402) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "works", force: :cascade do |t|
+    t.integer  "contact_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "works", ["contact_id"], name: "index_works_on_contact_id"
+  add_index "works", ["user_id"], name: "index_works_on_user_id"
 
 end
