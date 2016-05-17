@@ -62,6 +62,14 @@
   display: inline-block;
 }
 
+.picture {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #006dcc;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 hr.style1 {
   height: 30px;
   border-style: solid;

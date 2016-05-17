@@ -3,6 +3,9 @@
   <% if family.contact.user_id = current_user %>
      <h2><%= family.contact.name %></h2>
      <hr class="style2" />
+     <div class="picture">
+       <%= image_tag(family.contact.image.thumbnail.url, :class => "thumbnail inline") %>
+     </div><br />
      <i class="fa fa-map-marker" aria-hidden="true">
      <%= family.contact.address %><br />
      <%= family.contact.postalcode %></br />
