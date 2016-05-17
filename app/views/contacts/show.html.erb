@@ -19,6 +19,7 @@
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="home">
         <div class="smalldiv">
+          <%= image_tag(@contact.image.thumbnail.url, :class => "thumbnail inline") %>
         <h2><%= @contact.name %></h2>
         <i class="fa fa-map-marker" aria-hidden="true">
         <%= @contact.address %><br />
