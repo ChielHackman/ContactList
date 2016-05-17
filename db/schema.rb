@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516070934) do
+ActiveRecord::Schema.define(version: 20160517105245) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160516070934) do
     t.string   "address"
     t.string   "postalcode"
     t.string   "city"
+    t.string   "image"
   end
 
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"

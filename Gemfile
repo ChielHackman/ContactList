@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise', '~> 3.5'
 gem 'font-awesome-sass'
+gem 'carrierwave'
 
 
 # Use jquery as the JavaScript library

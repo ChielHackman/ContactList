@@ -5,6 +5,8 @@ class Contact < ActiveRecord::Base
   has_many :friends, :dependent => :destroy
   has_many :familys, :dependent => :destroy
 
+  mount_uploader :image, ImageUploader
+
   validates :name, presence: true
   validates :name, uniqueness: false
 
