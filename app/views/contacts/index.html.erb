@@ -5,10 +5,10 @@
   <div class="col-sm-6">
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-file-o" aria-hidden="true"></i></a></li>
-      <li role="presentation"><a href="#favourites" aria-controls="profile" role="tab" data-toggle="tab">Favourites</a></li>
-      <li role="presentation"><a href="#family" aria-controls="messages" role="tab" data-toggle="tab">Family</a></li>
-      <li role="presentation"><a href="#friends" aria-controls="settings" role="tab" data-toggle="tab">Friends</a></li>
-      <li role="presentation"><a href="#work" aria-controls="settings" role="tab" data-toggle="tab">Work</a></li>
+      <li role="presentation"><a href="#favourites" aria-controls="favourites" role="tab" data-toggle="tab">Favourites(<%= current_user.favourites.count %>)</a></li>
+      <li role="presentation"><a href="#family" aria-controls="family" role="tab" data-toggle="tab">Family(<%= current_user.familys.count %>)</a></li>
+      <li role="presentation"><a href="#friends" aria-controls="friends" role="tab" data-toggle="tab">Friends(<%= current_user.friends.count %>)</a></li>
+      <li role="presentation"><a href="#work" aria-controls="work" role="tab" data-toggle="tab">Work(<%= current_user.works.count %>)</a></li>
     </ul>
   </div>
 </div>
