@@ -20,4 +20,8 @@ class Contact < ActiveRecord::Base
     name
   end
 
+  def self.search(search)
+    where("name like ?", "%#{search}%")
+  end
+
 end

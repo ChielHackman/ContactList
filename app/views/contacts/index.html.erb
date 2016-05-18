@@ -14,10 +14,15 @@
 </div>
 <hr class="style1" />
 <div class="row">
-  <div class="col-sm-6">
-    <%= render current_user.contacts.order(:name) %>
+  <div class="col-sm-5">
+  <% if @contacts.present? %>
+    <%= render @contacts %>
+  <% else %>
+  <br />
+    <p>There are no contacts containing the name: <%= params[:search] %>.</p>
+  <% end %>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-7">
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="home">
         <%= render 'form' %>

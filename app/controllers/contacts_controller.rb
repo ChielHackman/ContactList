@@ -1,7 +1,11 @@
 class ContactsController < ApplicationController
 
   def index
-    @contacts = Contact.all
+    if params[:search]
+      @contacts = current_user.contacts.search(params[:search])
+    else
+      @contacts = current_user.contacts.order(:name)
+    end
     @user = current_user
     @favourites = @user.favourites.all
     @friends = @user.friends.all
