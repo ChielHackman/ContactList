@@ -7,16 +7,26 @@
 </ul>
   <div class="row">
     <div class="col-sm-12">
+      <%= image_tag(@contact.image.thumbnail.url, :class => "thumbnail inline", :id => "picture") %>
       <%= f.text_field :name, class: "form-control", placeholder: "Name*"  %>
       <%= f.text_field :address, class: "form-control", placeholder: "Address" %>
       <%= f.text_field :postalcode, class: "form-control", placeholder: "Postal code" %>
       <%= f.text_field :city, class: "form-control", placeholder: "City" %>
       <%= f.text_field :phone, class: "form-control", placeholder: "06-12345678*" %>
       <%= f.text_field :email, class: "form-control", placeholder: "someone@example.com*" %>
-      <%= f.file_field :image, class: "form-control", placeholder: "Select a image" %>
+      <%= f.file_field :image, class: "form-control", placeholder: "Select a image", id: "lefile", style: "display:none;" %>
+      <div class="input-append">
+      <input id="photoCover" class="form-control" type="text" placeholder="Select a contact image">
+      <a class="btn btn-primary" onclick="$('input[id=lefile]').click();">Browse</a>
+      </div>
+      <script type="text/javascript">
+      $('input[id=lefile]').change(function() {
+      $('#photoCover').val($(this).val());
+      });
+      </script>
     </div>
+    <i style="font-size: 10px;">* fields required</i>
   </div>
-  <i style="font-size: 10px;">* fields required</i>
   <br />
     <%= f.submit (@contact.new_record? ? "Create" : "Update"), class: "btn btn-primary" %>
     <%= link_to "Cancel", root_path, class: "btn btn-danger" %>
