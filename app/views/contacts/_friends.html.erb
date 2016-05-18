@@ -3,9 +3,8 @@
   <% if friend.contact.user_id = current_user %>
      <h2><%= friend.contact.name %></h2>
      <hr class="style2" />
-     <div class="picture">
-       <%= image_tag(friend.contact.image.thumbnail.url, :class => "thumbnail inline") %>
-     </div><br />
+       <%= image_tag(friend.contact.image.thumbnail.url, :class => "thumbnail inline", :id => "picture") %>
+     <br />
      <i class="fa fa-map-marker" aria-hidden="true">
      <%= friend.contact.address %><br />
      <%= friend.contact.postalcode %></br />

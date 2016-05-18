@@ -3,9 +3,8 @@
   <% if work.contact.user_id = current_user %>
      <h2><%= work.contact.name %></h2>
      <hr class="style2" />
-     <div class="picture">
-       <%= image_tag(work.contact.image.thumbnail.url, :class => "thumbnail inline") %>
-     </div><br />
+       <%= image_tag(work.contact.image.thumbnail.url, :class => "thumbnail inline", :id => "picture") %>
+     <br />
      <i class="fa fa-map-marker" aria-hidden="true">
      <%= work.contact.address %><br />
      <%= work.contact.postalcode %></br />
