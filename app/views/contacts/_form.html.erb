@@ -14,14 +14,17 @@
       <%= f.text_field :city, class: "form-control", placeholder: "City" %>
       <%= f.text_field :phone, class: "form-control", placeholder: "06-12345678*" %>
       <%= f.text_field :email, class: "form-control", placeholder: "someone@example.com*" %>
-      <%= f.file_field :image, class: "form-control", placeholder: "Select a image", id: "lefile", style: "display:none;" %>
-      <div class="input-append">
-      <input id="photoCover" class="form-control" type="text" placeholder="Select a contact image" disabled>
-      <a class="btn btn-primary" onclick="$('input[id=lefile]').click();">Browse</a>
-      </div>
+      <%= f.file_field :image, class: "form-control", placeholder: "Select a image", id: "file", style: "display:none;" %>
+          <div class="form-search form-inline">
+              <div class="input-group">
+                  <input id="image" class="form-control" placeholder="Select a contact image" disabled /> <span class="input-group-btn">
+                  <a class="btn btn-primary" onclick="$('input[id=file]').click();">Browse</a>
+                  </span>
+              </div>
+          </div>
       <script type="text/javascript">
-      $('input[id=lefile]').change(function() {
-      $('#photoCover').val($(this).val());
+      $('input[id=file]').change(function() {
+      $('#image').val($(this).val());
       });
       </script>
     </div>
