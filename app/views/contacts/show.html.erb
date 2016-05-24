@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-6">
-    <h2>Contacts <%= link_to "", root_path, class: "fa fa-home", style: 'font-size: 30px' %></h2>
+    <h2><%= link_to "Contacts", root_path %></h2>
   </div>
   <div class="col-sm-6">
     <ul class="nav nav-tabs" role="tablist">
@@ -13,13 +13,27 @@
 <hr class="style1" />
 <div class="row">
   <div class="col-sm-6">
-    <%= render current_user.contacts.order(:name) %>
+    <h2><%= @contact.name %></h2>
+    <% if favourited = Favourite.find_by( contact: @contact, user: current_user ) != nil %>
+      <ul>
+        <li>One of your favourite's</li>
+    <% end %>
+    <% if familyd = Family.find_by( contact: @contact, user: current_user ) != nil %>
+        <li>A family member</li>
+    <% end %>
+    <% if friended = Friend.find_by( contact: @contact, user: current_user ) != nil %>
+        <li>One of your friends</li>
+    <% end %>
+    <% if worked = Work.find_by( contact: @contact, user: current_user ) != nil %>
+        <li>One of your colleagues</li>
+      </ul>
+    <% end %>
+
   </div>
   <div class="col-sm-6">
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="home">
         <div class="smalldiv">
-        <h2><%= @contact.name %></h2>
         <%= image_tag(@contact.image.thumbnail.url, :class => "thumbnail inline", :id => "picture") %>
         <br />
         <i class="fa fa-map-marker" aria-hidden="true">
